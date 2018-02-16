@@ -1,0 +1,25 @@
+<h1>INDEX</h1>
+
+<% notice %>
+
+<div class="card" style="width: 18rem;">
+    <% @todos.each do |todo| %>
+  <div class="card-body">
+
+    <h5 class="card-title"><%= todo.description %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= todo.description %></h6>
+    <%= link_to 'Marcar como Completado', complete_todo_path(todo)  %>
+    <br>
+    <%= link_to 'Mostrar', todo_path(todo)  %>
+    <br>
+    <%= link_to 'Editar', edit_todo_path(todo)  %>
+    <br>
+    <%= link_to 'Eliminar', destroy_todo_path(todo)  %>
+    <br>
+    <%= todo.completed %>
+  </div>
+
+  <% end %>
+</div>
+
+<%= link_to 'Crear ToDo', todos_new_path %>
